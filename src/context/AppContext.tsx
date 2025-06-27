@@ -34,7 +34,7 @@ interface AppProviderProps {
 const initialState: State = {
   isOpen: false,
   isAuthenticated: JSON.parse(localStorage.getItem("isAuthenticated") || "false"),
-  user: {},
+  user: JSON.parse(localStorage.getItem("user") || "null"),
   //   uploadResponse: [],
 };
 export const AppStateContext = createContext<State | undefined>(undefined);
@@ -47,6 +47,9 @@ const DashboardReducer = (state: State, action: Action) => {
     case "SET_SELECTED":
       if (optionKey == "isAuthenticated") {
         localStorage.setItem("isAuthenticated", JSON.stringify(payload));
+      }
+      if (optionKey == "user") {
+        localStorage.setItem("user", JSON.stringify(payload));
       }
       return optionKey ? { ...state, [optionKey]: payload } : state;
 

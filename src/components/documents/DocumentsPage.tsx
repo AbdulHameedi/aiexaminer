@@ -11,15 +11,17 @@ import useUserDocuments from "../../hooks/useUserDocuments";
 
 export const DocumentsPage: React.FC = () => {
   const { user } = useAppState();
-  const { data: documents,error,isLoading } = useUserDocuments(user?.clientId || "");
-  console.log(documents, "dd")
-  console.log(error)
+  const { data: documents,isLoading } = useUserDocuments(user?.clientId || "");
+
 
   const getFileIcon = () => {
     return <FileText className="w-5 h-5 text-primary-600" />;
   };
 
   if(isLoading) return <div className="text-center text-gray-500 mt-8">Loading documents...</div>;
+  const truncate= (text: string, length: number) => {
+    if (text.length <= length) return text;
+    return text.slice(0, length) + "...";}
 
   return (
     <div className="p-6 max-w-7xl mx-auto">
@@ -64,7 +66,9 @@ export const DocumentsPage: React.FC = () => {
                       {/* {document.title} */}
                       Title
                     </h3>
-                    <p className="text-sm text-gray-500">{document.filename}</p>
+                    <p className="text-sm text-gray-500">
+                      {truncate(document.filename, 60)}
+                      </p>
                   </div>
                 </div>
                 <button className="p-1 hover:bg-gray-100 rounded">
