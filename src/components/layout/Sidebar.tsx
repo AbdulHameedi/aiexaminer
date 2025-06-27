@@ -12,7 +12,7 @@ export const Sidebar = () => {
   return (
     <div className="w-[280px] shadow-md h-screen bg-white fixed">
       <div className="border border-b flex justify-between py-8 px-6">
-        <img src="" alt="logo" />
+        <img src="/logo.svg" alt="logo" />
         <X />
       </div>
       <div className="p-6 flex flex-col gap-6">

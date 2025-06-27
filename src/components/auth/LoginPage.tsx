@@ -1,5 +1,5 @@
 import React from "react";
-import { Brain, BookOpen, Trophy, Zap } from "lucide-react";
+import { BookOpen, Trophy, Zap } from "lucide-react";
 import GoogleAuth from "./GoogleAuth";
 import { useAppState } from "../../hooks/useAppState";
 import { Navigate } from "react-router-dom";
@@ -14,16 +14,17 @@ export const LoginPage: React.FC = () => {
           {/* Header */}
           <div className="text-center mb-16 animate-fade-in">
             <div className="flex items-center justify-center mb-6">
-              <div className="bg-primary-600 p-3 rounded-2xl">
-                <Brain className="w-8 h-8 text-white" />
-              </div>
-              <span className="ml-3 text-2xl font-bold text-gray-900">
-                DOCAI
-              </span>
+                <img src="/logo.svg" alt="" />
+              {/* <div className="bg-primary-600 p-3 rounded-2xl">
+                 <Brain className="w-8 h-8 text-white" /> 
+              </div> */}
+              {/* <span className="ml-3 text-2xl font-bold text-gray-900">
+                NSKAI
+              </span> */}
             </div>
             <h1 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">
               Transform Your Learning with
-              <span className="text-primary-600 block">AI-Powered Quizzes</span>
+              <span className="text-[#FE0000] block">AI-Powered Quizzes</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Upload your documents and let our AI create personalized quizzes,
