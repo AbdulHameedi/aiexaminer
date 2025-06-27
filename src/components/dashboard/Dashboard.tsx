@@ -1,13 +1,12 @@
 import React from "react";
 import {
-  TrendingUp,
   FileText,
   ChevronRight,
   Zap,
   BookOpen,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { UploadButton } from "../ui/Document";
+import { TotalDocuments, truncate, UploadButton } from "../ui/Document";
 import useUserDocuments from "../../hooks/useUserDocuments";
 import { useAppState } from "../../hooks/useAppState";
 
@@ -32,25 +31,7 @@ export const Dashboard: React.FC = () => {
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-gray-600">
-                Total Documents
-              </p>
-              <p className="text-2xl font-bold text-gray-900">
-                {documents?.length}
-              </p>
-            </div>
-            <div className="bg-primary-100 p-3 rounded-lg">
-              <FileText className="w-6 h-6 text-primary-600" />
-            </div>
-          </div>
-          <div className="mt-4 flex items-center text-sm">
-            <TrendingUp className="w-4 h-4 text-accent-500 mr-1" />
-            <span className="text-accent-600">+2 this week</span>
-          </div>
-        </div>
+        <TotalDocuments count={documents?.length} />
 
         {/* <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
           <div className="flex items-center justify-between">
@@ -116,8 +97,7 @@ export const Dashboard: React.FC = () => {
                         </div>
                         <div>
                           <h3 className="font-medium text-gray-900">
-                            {/* {doc.title} */}
-                            TItle
+                            {truncate(doc.filename, 30)}
                           </h3>
                           <p className="text-sm text-gray-500">
                             Uploaded {doc.upload_timestamp}

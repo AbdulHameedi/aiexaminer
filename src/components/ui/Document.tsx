@@ -1,4 +1,4 @@
-import { Upload } from "lucide-react";
+import { FileText, Upload } from "lucide-react";
 
 export const UploadButton = () => {
   return (
@@ -19,7 +19,7 @@ export const DocumentHeader = ({
   title,
   description,
   children,
-  className
+  className,
 }: DocumentHeaderProps) => {
   return (
     <div className={`flex items-center justify-between mb-4 ${className}`}>
@@ -36,7 +36,24 @@ interface DocumentBodyProps {
   children?: React.ReactNode;
 }
 export const DocumentBody = ({ children }: DocumentBodyProps) => {
-    return(
-        <div className="p-6 max-w-7xl mx-auto">{children}</div>
-    )
+  return <div className="p-6 max-w-7xl mx-auto">{children}</div>;
+};
+
+export const truncate = (text: string, length: number) => {
+  if (text.length <= length) return text;
+  return text.slice(0, length) + "...";
+};
+
+export const TotalDocuments = ({ count }: { count: number|undefined }) => {
+  return (
+    <div className="bg-white rounded-lg p-4 border border-gray-200">
+      <div className="flex items-center justify-between">
+        <div>
+          <p className="text-sm text-gray-600">Total Documents</p>
+          <p className="text-2xl font-bold text-gray-900">{count}</p>
+        </div>
+        <FileText className="w-8 h-8 text-primary-600" />
+      </div>
+    </div>
+  );
 };

@@ -5,9 +5,10 @@ import {
   Download,
   Brain,
 } from "lucide-react";
-import { DocumentHeader } from "../ui/Document";
+import { DocumentHeader, TotalDocuments } from "../ui/Document";
 import { useAppState } from "../../hooks/useAppState";
 import useUserDocuments from "../../hooks/useUserDocuments";
+import { truncate } from "../ui/Document";
 
 export const DocumentsPage: React.FC = () => {
   const { user } = useAppState();
@@ -19,9 +20,7 @@ export const DocumentsPage: React.FC = () => {
   };
 
   if(isLoading) return <div className="text-center text-gray-500 mt-8">Loading documents...</div>;
-  const truncate= (text: string, length: number) => {
-    if (text.length <= length) return text;
-    return text.slice(0, length) + "...";}
+ 
 
   return (
     <div className="p-6 max-w-7xl mx-auto">
@@ -34,18 +33,8 @@ export const DocumentsPage: React.FC = () => {
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <div className="bg-white rounded-lg p-4 border border-gray-200">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-gray-600">Total Documents</p>
-                <p className="text-2xl font-bold text-gray-900">
-                  {documents?.length}
-                </p>
-              </div>
-              <FileText className="w-8 h-8 text-primary-600" />
-            </div>
+          <TotalDocuments count={documents?.length}/>
           </div>
-        </div>
       </div>
 
       {/* Documents Grid */}
@@ -64,7 +53,7 @@ export const DocumentsPage: React.FC = () => {
                   <div className="flex-1">
                     <h3 className="font-semibold text-gray-900 mb-1 line-clamp-2">
                       {/* {document.title} */}
-                      Title
+                      {truncate(document.file_type, 30)}
                     </h3>
                     <p className="text-sm text-gray-500">
                       {truncate(document.filename, 60)}

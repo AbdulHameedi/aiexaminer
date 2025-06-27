@@ -3,7 +3,7 @@ import { SidebarProps } from "../../types";
 import { Link } from "react-router-dom";
 
 const SidebarItems = [
-  { name: "Dashboard", icon: <LayoutDashboard />, to: "dashboard" },
+  { name: "Dashboard", icon: <LayoutDashboard />, to: "/" },
   { name: "Upload", icon: <Upload />, to: "upload" },
   { name: "Documents", icon: <File />, to: "documents" },
   { name: "Quiz", icon: <Brain />, to: "quiz" },

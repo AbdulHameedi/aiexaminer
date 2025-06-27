@@ -8,6 +8,7 @@ export interface UploadResponseProps {
   filename: string;
   upload_timestamp: string;
   topics: string[];
+  file_type: string;
 }
 export interface User {
   id: string;
