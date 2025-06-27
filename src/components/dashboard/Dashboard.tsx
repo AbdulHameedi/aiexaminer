@@ -19,7 +19,7 @@ export const Dashboard: React.FC = () => {
       <div className="flex justify-between items-center">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Welcome back!
+            Welcome {user?.name?.split(" ")[0]}
           </h1>
           <p className="text-gray-600">
             Here's what's happening with your learning journey.
