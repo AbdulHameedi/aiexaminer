@@ -10,7 +10,7 @@ const SidebarItems = [
 ];
 export const Sidebar = () => {
   return (
-    <div className="w-[280px] shadow-md h-screen bg-white">
+    <div className="w-[280px] shadow-md h-screen bg-white fixed">
       <div className="border border-b flex justify-between py-8 px-6">
         <img src="" alt="logo" />
         <X />
