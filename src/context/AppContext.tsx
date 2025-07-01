@@ -8,7 +8,6 @@ export interface State {
   user?: {
     name?: string;
     email?: string;
-    clientId?: string;
   };
   userName?: string;
   userEmail?: string;

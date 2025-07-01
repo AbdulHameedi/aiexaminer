@@ -12,7 +12,7 @@ import { truncate } from "../ui/Document";
 
 export const DocumentsPage: React.FC = () => {
   const { user } = useAppState();
-  const { data: documents,isLoading } = useUserDocuments(user?.clientId || "");
+  const { data: documents,isLoading } = useUserDocuments(user?.email || "");
 
 
   const getFileIcon = () => {

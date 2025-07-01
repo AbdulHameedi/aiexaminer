@@ -12,7 +12,7 @@ import { useAppState } from "../../hooks/useAppState";
 
 export const Dashboard: React.FC = () => {
   const { user } = useAppState();
-  const { data: documents } = useUserDocuments(user?.clientId || "");
+  const { data: documents } = useUserDocuments(user?.email || "");
   return (
     <div className="p-6 max-w-7xl mx-auto">
       <div className="flex justify-between items-center">

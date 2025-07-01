@@ -25,9 +25,9 @@ const UploadExtractor = () => {
     // console.log(uploadedImage);
 
     const file = images[0];
-    console.log(user?.clientId)
-    if (user?.clientId && file) {
-      const user_id = user?.clientId;
+    console.log(user?.email)
+    if (user?.email && file) {
+      const user_id = user?.email;
       mutate({ file, user_id });
     }
   };
@@ -46,7 +46,7 @@ const UploadExtractor = () => {
       >
         <Upload size={50} className="text-gray-400" />
         <p>Click to upload</p>
-        <p>Supports PDF, Word, Text</p>
+        <p>Supports PDF</p>
         <input
           type="file"
           ref={fileInputRef}
