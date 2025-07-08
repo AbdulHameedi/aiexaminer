@@ -16,8 +16,6 @@ const GoogleAuth = () => {
     setSelected("isAuthenticated", true);
 
     if (credentialResponse?.credential) {
-      const clientId = credentialResponse.clientId;
-      console.log(credentialResponse)
       const decodedToken = JSON.parse(
         atob(credentialResponse.credential.split(".")[1])
       );

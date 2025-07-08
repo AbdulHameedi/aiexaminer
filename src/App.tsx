@@ -13,6 +13,7 @@ import UploadDocuments from "./pages/UploadDocuments";
 // import LandingPage from "./pages/LandingPage";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { LoginPage } from "./components/auth/LoginPage";
+import QuizComponent from "./pages/Quiz";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="documents" element={<DocumentsPage />} />
             <Route path="upload" element={<UploadDocuments />} />
+            <Route path="quiz" element={<QuizComponent />} />
           </Route>
 
           {/* <Route index element={<Dashboard />} /> */}

@@ -1,17 +1,21 @@
 import { createContext, Reducer, useMemo, useReducer } from "react";
-import { UploadResponseProps } from "../types/api";
+import { QuizResponse, QuizSessionResponse, UploadResponseProps } from "../types/api";
 
 export interface State {
   isOpen: boolean;
-  uploadResponse?: UploadResponseProps;
   isAuthenticated: boolean;
+  uploadResponse?: UploadResponseProps[];
+  session?: QuizSessionResponse | null;
+  quiz?: QuizResponse | null;
   user?: {
     name?: string;
     email?: string;
+    token?: string | null
   };
   userName?: string;
   userEmail?: string;
   userToken?: string;
+  
 }
 interface Action {
   type: string;
